@@ -1,0 +1,20 @@
+<view class="page">
+  <view class="card top-card">
+    <view class="section-title">接单大厅</view>
+    <view class="muted">这里展示经过企业授权或待补充协议的短期代班需求。</view>
+  </view>
+
+  <view class="order-card" wx:for="{{orders}}" wx:key="id" bindtap="openDetail" data-id="{{item.id}}">
+    <view class="order-head">
+      <view>
+        <view class="order-title">{{item.title}}</view>
+        <view class="muted">{{item.location}} · {{item.date}}</view>
+      </view>
+      <view class="status">{{item.status}}</view>
+    </view>
+    <view class="salary">{{item.salary}}元/天</view>
+    <view class="order-line">{{item.company}} · {{item.authStatus}}</view>
+    <view class="order-line">{{item.insurance}}</view>
+    <button class="secondary-btn contact" catchtap="contact" data-id="{{item.id}}">申请沟通</button>
+  </view>
+</view>

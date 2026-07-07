@@ -1,0 +1,36 @@
+<view class="page">
+  <view class="card">
+    <view class="tag">{{order.status}}</view>
+    <view class="detail-title">{{order.title}}</view>
+    <view class="muted">{{order.company}} · {{order.authStatus}}</view>
+    <view class="salary">{{order.salary}}元/天</view>
+    <view class="muted">{{order.location}} · {{order.date}}</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">岗位要求</view>
+    <view class="body-text">{{order.requirement}}</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">费用与保障</view>
+    <view class="row">
+      <view>平台信息服务费</view>
+      <view>{{serviceFee}}元</view>
+    </view>
+    <view class="row">
+      <view>保险</view>
+      <view>{{order.insurance}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">合规检查</view>
+    <view class="check-item" wx:for="{{order.compliance}}" wx:key="*this">✓ {{item}}</view>
+  </view>
+
+  <view class="action-bar">
+    <button class="secondary-btn" bindtap="goAgreement">查看协议</button>
+    <button class="primary-btn" bindtap="applyOrder">申请接单</button>
+  </view>
+</view>

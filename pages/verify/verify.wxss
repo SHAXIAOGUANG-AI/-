@@ -1,0 +1,20 @@
+.verify-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+  align-items: center;
+}
+
+.verify-title {
+  font-weight: 700;
+  margin-bottom: 8rpx;
+}
+
+.status {
+  color: #1677ff;
+  background: #eaf3ff;
+  border-radius: 999rpx;
+  padding: 8rpx 14rpx;
+  font-size: 24rpx;
+  white-space: nowrap;
+}

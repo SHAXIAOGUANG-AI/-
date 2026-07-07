@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="card">
+    <view class="section-title">协议与保障流程</view>
+    <view class="muted">这里不是正式法律文本，而是产品流程骨架。真实上线前需要律师或企业人事合规确认。</view>
+  </view>
+
+  <view class="card">
+    <view class="flow" wx:for="{{steps}}" wx:key="title">
+      <view class="flow-index">{{index + 1}}</view>
+      <view>
+        <view class="flow-title">{{item.title}}</view>
+        <view class="muted">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+</view>

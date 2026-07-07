@@ -1,0 +1,40 @@
+<view class="page">
+  <view class="card identity">
+    <view class="avatar">纸</view>
+    <view>
+      <view class="name">{{profile.name}}</view>
+      <view class="muted">{{profile.role}} · {{profile.verifyStatus}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">账户状态</view>
+    <view class="account-row">
+      <view>手机号</view>
+      <view class="muted">{{profile.phoneStatus}}</view>
+    </view>
+    <view class="account-row">
+      <view>履约分</view>
+      <view class="score">{{profile.score}}</view>
+    </view>
+    <button class="secondary-btn" bindtap="goVerify">去认证</button>
+  </view>
+
+  <view class="card">
+    <view class="section-title">风险控制</view>
+    <view class="risk" wx:for="{{risks}}" wx:key="title">
+      <view class="risk-title">{{item.title}}</view>
+      <view class="muted">{{item.desc}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">下一步需要的软件</view>
+    <view class="tool" wx:for="{{tools}}" wx:key="name">
+      <view class="tool-name">{{item.name}}</view>
+      <view class="muted">{{item.desc}}</view>
+    </view>
+  </view>
+
+  <button class="primary-btn" bindtap="goWorkbench">平台工作台</button>
+</view>

@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="card">
+    <view class="section-title">平台工作台</view>
+    <view class="muted">正式运营时，平台需要人工审核和异常处理后台。这里先做移动端演示入口。</view>
+  </view>
+
+  <view class="stats">
+    <view class="stat-card" wx:for="{{stats}}" wx:key="label">
+      <view class="stat-value">{{item.value}}</view>
+      <view class="muted">{{item.label}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">待办事项</view>
+    <view class="task" wx:for="{{tasks}}" wx:key="*this">{{item}}</view>
+  </view>
+</view>

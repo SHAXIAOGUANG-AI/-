@@ -1,0 +1,26 @@
+.flow {
+  display: flex;
+  gap: 20rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #edf0f5;
+}
+
+.flow:last-child {
+  border-bottom: 0;
+}
+
+.flow-index {
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: #1677ff;
+  color: #ffffff;
+  flex: 0 0 44rpx;
+}
+
+.flow-title {
+  font-weight: 700;
+  margin-bottom: 8rpx;
+}

@@ -1,0 +1,49 @@
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16rpx;
+  color: #3a4355;
+  line-height: 1.5;
+  margin: 26rpx 0;
+}
+
+.checkbox {
+  width: 38rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  border: 2rpx solid #c9d1de;
+  color: #ffffff;
+  flex: 0 0 38rpx;
+}
+
+.checkbox.checked {
+  background: #1677ff;
+  border-color: #1677ff;
+}
+
+.submit {
+  margin-top: 14rpx;
+}
+
+.fee-box {
+  background: #eef4ff;
+  color: #1677ff;
+  border-radius: 12rpx;
+  padding: 22rpx;
+  margin-top: 18rpx;
+  font-weight: 700;
+}
+
+.preview-title {
+  font-weight: 700;
+  font-size: 32rpx;
+  margin-bottom: 12rpx;
+}
+
+.preview-salary {
+  color: #1677ff;
+  font-weight: 700;
+  margin: 14rpx 0;
+}

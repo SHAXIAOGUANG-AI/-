@@ -1,0 +1,50 @@
+.top-card {
+  margin-bottom: 18rpx;
+}
+
+.order-card {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 28rpx;
+  margin-bottom: 22rpx;
+  box-shadow: 0 8rpx 24rpx rgba(25, 35, 60, 0.06);
+}
+
+.order-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.order-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  margin-bottom: 10rpx;
+}
+
+.status {
+  color: #1677ff;
+  background: #eaf3ff;
+  border-radius: 999rpx;
+  padding: 8rpx 14rpx;
+  font-size: 24rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  white-space: nowrap;
+}
+
+.salary {
+  color: #1677ff;
+  font-size: 36rpx;
+  font-weight: 800;
+  margin: 24rpx 0 16rpx;
+}
+
+.order-line {
+  color: #3a4355;
+  padding: 8rpx 0;
+}
+
+.contact {
+  margin-top: 22rpx;
+}

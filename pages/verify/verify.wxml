@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="card">
+    <view class="section-title">认证中心</view>
+    <view class="muted">正式版需要先认证，再发布或接单。这里先做流程入口，后续接微信手机号、身份核验和后台审核。</view>
+  </view>
+
+  <view class="card verify-item" wx:for="{{items}}" wx:key="title">
+    <view>
+      <view class="verify-title">{{item.title}}</view>
+      <view class="muted">{{item.desc}}</view>
+    </view>
+    <view class="status">{{item.status}}</view>
+  </view>
+
+  <button class="primary-btn" bindtap="startVerify">开始认证</button>
+</view>

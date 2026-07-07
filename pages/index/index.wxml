@@ -1,0 +1,47 @@
+<view class="page">
+  <view class="hero">
+    <view class="tag">正式版 V1</view>
+    <view class="hero-title">企业授权短期代班</view>
+    <view class="hero-desc">帮助需要时间的工作者，在企业同意、协议明确、保险齐全的前提下，找到可靠的短期代班者。</view>
+    <view class="hero-actions">
+      <button class="primary-btn" bindtap="goPublish">发布需求</button>
+      <button class="secondary-btn" bindtap="goOrders">查看接单</button>
+    </view>
+  </view>
+
+  <view class="quick-grid">
+    <view class="quick-card" bindtap="goVerify">
+      <view class="quick-title">实名认证</view>
+      <view class="muted">个人、技能、企业授权</view>
+    </view>
+    <view class="quick-card" bindtap="goAgreement">
+      <view class="quick-title">协议流程</view>
+      <view class="muted">劳务协议与保险确认</view>
+    </view>
+    <view class="quick-card" bindtap="goWorkbench">
+      <view class="quick-title">平台工作台</view>
+      <view class="muted">审核、履约、异常跟进</view>
+    </view>
+  </view>
+
+  <view class="card warning">
+    <view class="section-title">合规前提</view>
+    <view class="muted">平台只承接企业授权后的短期劳务合作，不支持绕开企业管理的私下替岗。正式上线前还需要专业法律和人事合规审核。</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">四方流程</view>
+    <view class="step" wx:for="{{steps}}" wx:key="title">
+      <view class="step-index">{{index + 1}}</view>
+      <view class="step-body">
+        <view class="step-title">{{item.title}}</view>
+        <view class="muted">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">平台解决什么</view>
+    <view class="benefit" wx:for="{{benefits}}" wx:key="text">{{item.text}}</view>
+  </view>
+</view>

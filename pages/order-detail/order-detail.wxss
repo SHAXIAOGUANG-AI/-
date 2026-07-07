@@ -1,0 +1,41 @@
+.detail-title {
+  font-size: 42rpx;
+  font-weight: 800;
+  margin: 20rpx 0 12rpx;
+}
+
+.salary {
+  color: #1677ff;
+  font-size: 42rpx;
+  font-weight: 800;
+  margin: 22rpx 0 12rpx;
+}
+
+.body-text {
+  color: #3a4355;
+  line-height: 1.7;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #edf0f5;
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.check-item {
+  color: #1677ff;
+  padding: 12rpx 0;
+}
+
+.action-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18rpx;
+  padding-bottom: 28rpx;
+}

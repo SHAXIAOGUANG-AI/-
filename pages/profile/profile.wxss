@@ -1,0 +1,56 @@
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.avatar {
+  width: 86rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  text-align: center;
+  border-radius: 24rpx;
+  background: #1677ff;
+  color: #ffffff;
+  font-size: 38rpx;
+  font-weight: 800;
+}
+
+.name {
+  font-size: 34rpx;
+  font-weight: 800;
+  margin-bottom: 8rpx;
+}
+
+.risk,
+.tool {
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #edf0f5;
+}
+
+.risk:last-child,
+.tool:last-child {
+  border-bottom: 0;
+}
+
+.risk-title,
+.tool-name {
+  font-weight: 700;
+  margin-bottom: 8rpx;
+}
+
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #edf0f5;
+}
+
+.account-row:last-of-type {
+  border-bottom: 0;
+}
+
+.score {
+  color: #1677ff;
+  font-weight: 800;
+}

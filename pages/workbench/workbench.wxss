@@ -1,0 +1,29 @@
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18rpx;
+  margin-bottom: 24rpx;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 26rpx;
+  box-shadow: 0 8rpx 24rpx rgba(25, 35, 60, 0.06);
+}
+
+.stat-value {
+  color: #1677ff;
+  font-size: 42rpx;
+  font-weight: 800;
+  margin-bottom: 8rpx;
+}
+
+.task {
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #edf0f5;
+}
+
+.task:last-child {
+  border-bottom: 0;
+}

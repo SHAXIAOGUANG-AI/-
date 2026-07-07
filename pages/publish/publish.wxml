@@ -1,0 +1,63 @@
+<view class="page">
+  <view class="card">
+    <view class="section-title">发布代班需求</view>
+    <view class="muted">正式版必须先确认企业同意，并补充企业联系人、授权说明、协议和保险信息。</view>
+
+    <view class="field">
+      <label class="field-label">岗位名称</label>
+      <input placeholder="例：门店补货、制造岗协助" bindinput="onInput" data-key="title" />
+    </view>
+
+    <view class="field">
+      <label class="field-label">代班日期</label>
+      <input placeholder="例：7月12日，或7月12日-7月13日" bindinput="onInput" data-key="date" />
+    </view>
+
+    <view class="field">
+      <label class="field-label">地点</label>
+      <input placeholder="例：杭州 余杭" bindinput="onInput" data-key="location" />
+    </view>
+
+    <view class="field">
+      <label class="field-label">企业名称</label>
+      <input placeholder="例：杭州某制造企业" bindinput="onInput" data-key="company" />
+    </view>
+
+    <view class="field">
+      <label class="field-label">企业联系人</label>
+      <input placeholder="例：王主管 138****0000" bindinput="onInput" data-key="companyContact" />
+    </view>
+
+    <view class="field">
+      <label class="field-label">当天工资</label>
+      <input placeholder="例：260元/天" bindinput="onInput" data-key="salary" />
+    </view>
+
+    <view class="field">
+      <label class="field-label">岗位要求</label>
+      <textarea placeholder="写清楚工作内容、时间、注意事项" bindinput="onInput" data-key="requirement" />
+    </view>
+
+    <view class="fee-box">
+      <view>平台信息服务费：{{serviceRate}}%</view>
+      <view class="muted">填写数字工资后，会在预览中估算服务费。</view>
+    </view>
+
+    <view class="check-row" bindtap="toggleAgree">
+      <view class="checkbox {{agreed ? 'checked' : ''}}">{{agreed ? '✓' : ''}}</view>
+      <view>我已确认企业同意，并愿意配合平台审核、劳务协议和短期保险流程</view>
+    </view>
+
+    <button class="primary-btn submit" bindtap="submit">提交审核</button>
+  </view>
+
+  <view class="card" wx:if="{{preview.title}}">
+    <view class="section-title">需求预览</view>
+    <view class="preview-title">{{preview.title}}</view>
+    <view class="muted">{{preview.date}} · {{preview.location}}</view>
+    <view class="preview-salary">{{preview.salary}}元/天</view>
+    <view class="muted">预估服务费：{{preview.serviceFee}}元</view>
+    <view class="muted">企业：{{preview.company}}</view>
+    <view class="muted">{{preview.requirement}}</view>
+  </view>
+</view>
