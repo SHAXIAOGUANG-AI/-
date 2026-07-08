@@ -1,3 +1,5 @@
+const orderService = require("../../services/orderService");
+
 Page({
   data: {
     form: {},
@@ -30,9 +32,20 @@ Page({
 
     const salary = Number(this.data.form.salary || 0);
     const serviceFee = Math.round(salary * this.data.serviceRate) / 100;
-    this.setData({
-      preview: Object.assign({}, this.data.form, { serviceFee })
+    const form = Object.assign({}, this.data.form, {
+      salary,
+      serviceFeeRate: this.data.serviceRate,
+      serviceFee,
+      status: "reviewing"
     });
-    wx.showToast({ title: "已提交审核", icon: "success" });
+
+    orderService.submitOrder(form)
+      .then((order) => {
+        this.setData({ preview: Object.assign({}, form, order) });
+        wx.showToast({ title: "已提交审核", icon: "success" });
+      })
+      .catch(() => {
+        wx.showToast({ title: "提交失败", icon: "none" });
+      });
   }
 });

@@ -11,14 +11,18 @@
 
 ## 2. app.js 初始化示例
 
-当前项目还没有真实连接云开发。开通后可以在 `App({ ... })` 前加入：
+当前项目已经预留了云开发初始化。开通后修改：
 
 ```js
-wx.cloud.init({
-  env: "你的云开发环境ID",
-  traceUser: true
-});
+// config/env.js
+module.exports = {
+  cloudEnabled: true,
+  cloudEnvId: "你的云开发环境ID",
+  serviceFeeRate: 8
+};
 ```
+
+如果 `cloudEnabled` 是 `false`，小程序会继续使用本地模拟数据，方便演示。
 
 ## 3. 数据库集合
 
@@ -112,16 +116,30 @@ wx.cloud.init({
 
 ## 4. 云函数建议
 
+当前已创建这些云函数骨架：
+
 - login：获取 openid，初始化用户。
-- submitOrder：提交代班需求。
-- reviewOrder：平台审核订单。
+- submitOrder：提交、查询代班需求。
 - applyOrder：代班者申请接单。
+- reviewOrder：平台审核订单。
+- updateFulfillment：更新履约状态。
+
+后续建议继续补：
+
 - acceptApplication：确认代班者。
 - createAgreement：生成协议记录。
-- updateFulfillment：更新履约状态。
 - createRiskEvent：创建异常事件。
+- createPayment：创建服务费支付订单。
 
-## 5. 暂不建议第一版就做的功能
+## 5. 云函数部署步骤
+
+1. 在微信开发者工具中打开云开发。
+2. 右键 `cloudfunctions/login`，选择“上传并部署：云端安装依赖”。
+3. 对 `submitOrder`、`applyOrder`、`reviewOrder`、`updateFulfillment` 重复同样操作。
+4. 在云数据库创建 `users`、`orders`、`applications` 等集合。
+5. 把 `config/env.js` 中 `cloudEnabled` 改成 `true`，并填入环境 ID。
+
+## 6. 暂不建议第一版就做的功能
 
 - 自动法律协议生成。
 - 真实工资托管。

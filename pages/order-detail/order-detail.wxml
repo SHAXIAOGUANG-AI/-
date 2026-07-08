@@ -1,4 +1,9 @@
 <view class="page">
+  <view class="card" wx:if="{{loading}}">
+    <view class="muted">正在加载订单详情...</view>
+  </view>
+
+  <block wx:if="{{!loading}}">
   <view class="card">
     <view class="tag">{{order.status}}</view>
     <view class="detail-title">{{order.title}}</view>
@@ -33,4 +38,5 @@
     <button class="secondary-btn" bindtap="goAgreement">查看协议</button>
     <button class="primary-btn" bindtap="applyOrder">申请接单</button>
   </view>
+  </block>
 </view>

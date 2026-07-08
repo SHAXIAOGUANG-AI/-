@@ -30,6 +30,7 @@
     }
   },
   "compileType": "miniprogram",
+  "cloudfunctionRoot": "cloudfunctions/",
   "libVersion": "latest",
   "appid": "touristappid",
   "projectname": "zhiqiao-daiban-miniprogram",

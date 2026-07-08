@@ -1,3 +1,5 @@
+const userService = require("../../services/userService");
+
 Page({
   data: {
     profile: {},
@@ -32,9 +34,17 @@ Page({
   },
 
   onLoad() {
-    this.setData({
-      profile: getApp().globalData.userProfile
-    });
+    userService.login()
+      .then((res) => {
+        this.setData({
+          profile: res.profile || getApp().globalData.userProfile
+        });
+      })
+      .catch(() => {
+        this.setData({
+          profile: getApp().globalData.userProfile
+        });
+      });
   },
 
   goVerify() {

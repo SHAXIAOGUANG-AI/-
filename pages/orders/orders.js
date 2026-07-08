@@ -1,12 +1,31 @@
+const orderService = require("../../services/orderService");
+
 Page({
   data: {
-    orders: []
+    orders: [],
+    loading: true
   },
 
   onLoad() {
-    this.setData({
-      orders: getApp().globalData.orders
-    });
+    this.loadOrders();
+  },
+
+  onPullDownRefresh() {
+    this.loadOrders().finally(() => wx.stopPullDownRefresh());
+  },
+
+  loadOrders() {
+    this.setData({ loading: true });
+    return orderService.listOrders()
+      .then((orders) => {
+        this.setData({ orders });
+      })
+      .catch(() => {
+        wx.showToast({ title: "订单加载失败", icon: "none" });
+      })
+      .finally(() => {
+        this.setData({ loading: false });
+      });
   },
 
   openDetail(event) {
@@ -16,10 +35,17 @@ Page({
   },
 
   contact(event) {
-    wx.showModal({
-      title: "申请沟通",
-      content: `订单 ${event.currentTarget.dataset.id} 将进入认证、协议、保险和平台审核流程。`,
-      showCancel: false
-    });
+    const orderId = event.currentTarget.dataset.id;
+    orderService.applyOrder(orderId, "希望进一步沟通岗位要求")
+      .then(() => {
+        wx.showModal({
+          title: "申请已提交",
+          content: `订单 ${orderId} 已进入认证、协议、保险和平台审核流程。`,
+          showCancel: false
+        });
+      })
+      .catch(() => {
+        wx.showToast({ title: "申请失败", icon: "none" });
+      });
   }
 });

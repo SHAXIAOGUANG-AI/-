@@ -4,6 +4,14 @@
     <view class="muted">这里展示经过企业授权或待补充协议的短期代班需求。</view>
   </view>
 
+  <view class="card" wx:if="{{loading}}">
+    <view class="muted">正在加载订单...</view>
+  </view>
+
+  <view class="card" wx:if="{{!loading && orders.length === 0}}">
+    <view class="muted">暂无可接订单。</view>
+  </view>
+
   <view class="order-card" wx:for="{{orders}}" wx:key="id" bindtap="openDetail" data-id="{{item.id}}">
     <view class="order-head">
       <view>
