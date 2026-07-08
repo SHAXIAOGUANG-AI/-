@@ -15,4 +15,6 @@
     <view class="section-title">待办事项</view>
     <view class="task" wx:for="{{tasks}}" wx:key="*this">{{item}}</view>
   </view>
+
+  <button class="secondary-btn" bindtap="createRiskDemo">创建风控记录演示</button>
 </view>

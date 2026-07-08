@@ -123,23 +123,33 @@ module.exports = {
 - applyOrder：代班者申请接单。
 - reviewOrder：平台审核订单。
 - updateFulfillment：更新履约状态。
-
-后续建议继续补：
-
 - acceptApplication：确认代班者。
 - createAgreement：生成协议记录。
 - createRiskEvent：创建异常事件。
-- createPayment：创建服务费支付订单。
+- createPayment：创建服务费支付占位单。
 
 ## 5. 云函数部署步骤
 
 1. 在微信开发者工具中打开云开发。
 2. 右键 `cloudfunctions/login`，选择“上传并部署：云端安装依赖”。
-3. 对 `submitOrder`、`applyOrder`、`reviewOrder`、`updateFulfillment` 重复同样操作。
-4. 在云数据库创建 `users`、`orders`、`applications` 等集合。
+3. 对 `submitOrder`、`applyOrder`、`reviewOrder`、`updateFulfillment`、`acceptApplication`、`createAgreement`、`createRiskEvent`、`createPayment` 重复同样操作。
+4. 在云数据库创建 `users`、`orders`、`applications`、`agreements`、`risk_events`、`payments` 等集合。
 5. 把 `config/env.js` 中 `cloudEnabled` 改成 `true`，并填入环境 ID。
 
-## 6. 暂不建议第一版就做的功能
+## 6. 数据库权限建议
+
+第一版建议用“所有端只读写自己创建的数据，管理动作走云函数”的思路：
+
+- users：用户只能读写自己的资料。
+- orders：普通用户可读开放订单，创建者可读自己的订单；审核和状态变更走云函数。
+- applications：申请者可创建和读取自己的申请；确认申请走云函数。
+- agreements：只允许相关三方读取；创建和状态变更走云函数。
+- payments：用户只读自己的支付记录；创建支付走云函数。
+- risk_events：只允许平台审核员读取和处理。
+
+云数据库规则要结合你的小程序 AppID、openid 和角色字段再细化。
+
+## 7. 暂不建议第一版就做的功能
 
 - 自动法律协议生成。
 - 真实工资托管。

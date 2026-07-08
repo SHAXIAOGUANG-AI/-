@@ -1,5 +1,6 @@
 const { calcServiceFee } = require("../../utils/format");
 const orderService = require("../../services/orderService");
+const workflowService = require("../../services/workflowService");
 
 Page({
   data: {
@@ -39,5 +40,18 @@ Page({
 
   goAgreement() {
     wx.navigateTo({ url: "/pages/agreement/agreement" });
+  },
+
+  createPaymentDemo() {
+    workflowService.createPayment({
+      orderId: this.data.order.id,
+      payerOpenid: "local-demo-openid",
+      amount: this.data.serviceFee,
+      type: "service_fee"
+    }).then(() => {
+      wx.showToast({ title: "支付单已创建", icon: "success" });
+    }).catch(() => {
+      wx.showToast({ title: "创建失败", icon: "none" });
+    });
   }
 });

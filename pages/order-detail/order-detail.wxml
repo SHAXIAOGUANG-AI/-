@@ -38,5 +38,6 @@
     <button class="secondary-btn" bindtap="goAgreement">查看协议</button>
     <button class="primary-btn" bindtap="applyOrder">申请接单</button>
   </view>
+  <button class="secondary-btn" bindtap="createPaymentDemo">创建服务费支付单演示</button>
   </block>
 </view>
